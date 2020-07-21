@@ -43,7 +43,7 @@ function App() {
         DAY/NIGHT
       </button>
 
-      <p><strong> {letLight ? 'Morning' : 'Night'} Time </strong></p>
+      <p><strong> {letLight ? 'Morning' : 'Night'} Time: </strong></p>
       </div>
 
     
