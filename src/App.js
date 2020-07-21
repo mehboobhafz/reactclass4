@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Number from './message'
+import "./App.css"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  let[count, setCount] = useState(0);
+  let[letLight, setLight] = useState(true);
+  
+  // Condition to control less than zero
+  if(count < 0){
+    count = 0;
+    
+  }  
+  
+    
+    
+  
+  return(
+    <div className={`day ${letLight ? 'day': 'night'}`}>
+
+      <h2>This is Counter check Application</h2>
+
+      <h3>By clicking below button the number get increased</h3>
+
+      <button onClick={()=>setCount(++count)}>
+        Increase Number
+      </button> <br/> <br/>
+
+      
+      <h3 className="box">By clicking below button the number get decreased</h3>
+
+      <button onClick={()=>setCount(--count)}>
+        Decrease Number
+      </button>
+      
+
+      {/* Passing props to componenet Number */}
+      
+      <Number total = {count}/>
+
+      <div>
+      <button onClick={()=>setLight(!letLight)}>
+        DAY/NIGHT
+      </button>
+
+      <p><strong> {letLight ? 'Morning' : 'Night'} Time </strong></p>
+      </div>
+
+    
     </div>
-  );
+  )
 }
 
-export default App;
+
+
+export default App
